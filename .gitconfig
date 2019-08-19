@@ -1,0 +1,14 @@
+[user]
+	email = taishi2060@gmail.com
+	name = shierote
+[alias]
+  st = status
+  co = checkout
+  b  = branch
+  a  = add
+  c  = commit
+  d  = diff
+  g  = grep
+  p  = push
+[core]
+	excludesfile = /Users/taishieguchi/.gitignore_global
