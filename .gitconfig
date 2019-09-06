@@ -9,6 +9,7 @@
   c  = commit
   d  = diff
   g  = grep
-  p  = push
+  ph = push
+  pl = pull
 [core]
 	excludesfile = /Users/taishieguchi/.gitignore_global
