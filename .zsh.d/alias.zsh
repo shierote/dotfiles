@@ -57,11 +57,11 @@ function gph {
   BRANCH=`git symbolic-ref --short HEAD`
   echo "Executing git push origin ${BRANCH} ..."
   git push origin $BRANCH
-  read WILL_OPEN\?'Do you wanna open github page? y|N: '
-  if [ WILL_OPEN = "y" ]; then
-    echo "Opening github page ..."
-    eval $(hub browse)
-  fi
+  # read WILL_OPEN\?'Do you wanna open github page? y|N: '
+  # if [ WILL_OPEN == "y" ]; then
+  echo "Opening github page ..."
+  eval $(hub browse)
+  # fi
 }
 
 function gpl {
@@ -89,7 +89,7 @@ function gu {
   
   # push
   read WILL_PUSH\?'wanna push? y|N: '
-  if [ WILL_PUSH = "y" ]; then 
+  if [ WILL_PUSH == "y" ]; then 
     gph 
   fi
 }
