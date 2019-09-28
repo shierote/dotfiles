@@ -13,7 +13,6 @@ alias jn='jupyter notebook'
 alias a='atom'
 alias c='code'
 alias cl='clear'
-alias gu="$HOME/.zsh.d/gitupdate.sh"
 alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
@@ -54,15 +53,44 @@ function gv {
   vi $(git grep -n ${STR} | peco | awk -F: '{print $1}')
 }
 
-function gph () {
+function gph {
   BRANCH=`git symbolic-ref --short HEAD`
   echo "Executing git push origin ${BRANCH} ..."
   git push origin $BRANCH
+  # read WILL_OPEN\?'Do you wanna open github page? y|N: '
+  # if [ WILL_OPEN == "y" ]; then
+  echo "Opening github page ..."
+  eval $(hub browse)
+  # fi
 }
 
-function gpl () {
+function gpl {
   BRANCH=`git symbolic-ref --short HEAD`
   echo "Executing git pull origin ${BRANCH} ..."
   git pull origin $BRANCH
+}
+
+function gu {
+  # show status
+  git status -s
+  echo 
+
+  # add
+  read ADD_FILE\?'git add '
+  git add $ADD_FILE
+
+  # show status
+  git status -s
+  echo
+
+  # commit
+  read MESSAGE\?'git commit -m '
+  git commit -m $MESSAGE
+  
+  # push
+  read WILL_PUSH\?'wanna push? y|N: '
+  if [ WILL_PUSH == "y" ]; then 
+    gph 
+  fi
 }
 
