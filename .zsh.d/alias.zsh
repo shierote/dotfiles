@@ -14,6 +14,10 @@ alias a='atom'
 alias c='code'
 alias cl='clear'
 alias gu="$HOME/.zsh.d/gitupdate.sh"
+alias ga="git add"
+alias gc="git commit"
+alias gs="git status"
+alias gd="git diff"
 
 function find_cd() {
     cd "$(find . -type d | peco)"
@@ -48,5 +52,17 @@ function ggl {
 function gv {
   STR="$1"
   vi $(git grep -n ${STR} | peco | awk -F: '{print $1}')
+}
+
+function gph () {
+  BRANCH=`git symbolic-ref --short HEAD`
+  echo "Executing git push origin ${BRANCH} ..."
+  git push origin $BRANCH
+}
+
+function gpl () {
+  BRANCH=`git symbolic-ref --short HEAD`
+  echo "Executing git pull origin ${BRANCH} ..."
+  git pull origin $BRANCH
 }
 

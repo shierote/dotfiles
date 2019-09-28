@@ -10,3 +10,5 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
     done
 fi
 
+# added by travis gem
+[ -f /Users/taishieguchi/.travis/travis.sh ] && source /Users/taishieguchi/.travis/travis.sh

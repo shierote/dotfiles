@@ -20,3 +20,7 @@ export LANG=ja_JP.UTF-8
 export ZSH=/Users/taishieguchi/.oh-my-zsh
 export PATH=$HOME/usr/bin:$PATH
 
+export HISTFILE=$HOME/.zsh-history
+export HISTSIZE=100000
+export SAVEHIST=1000000
+
