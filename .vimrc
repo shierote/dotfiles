@@ -1,3 +1,44 @@
+set expandtab 
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set smartindent
+set number
+set hlsearch
+set autoindent
+set clipboard+=unnamed
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
+set whichwrap=b,s,h,l,<,>,[,],~
+set noswapfile
+
+source $HOME/.vim/autoload/plug.vim
+call plug#begin('~/.vim/plugged')
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " file tree
+  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] } " add git status to nerdtree
+
+  Plug 'neoclide/coc.nvim', {'merge':0, 'build': 'yarn install --frozen-lockfile'}
+call plug#end()
+
+syntax enable
+syntax on
+
+inoremap <silent> jj <ESC>
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+set nocompatible
+filetype plugin indent off
+set runtimepath+=~/.vim/bundle/neobundle.vim
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -85,70 +126,41 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'szw/vim-tags'
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-
-" You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'posva/vim-vue'
-
-" Required:
 call neobundle#end()
-
-" Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-"End NeoBundle Scripts-------------------------
 set nocompatible
 
 
-" Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
 
-" Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return neocomplcache#smart_close_popup() . "\<CR>"
 endfunction
-" <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-" ctagsの設定
-set fileformats=unix,dos,mac
-set fileencodings=utf-8,sjis
-
 :command V Vim
 
-" indentLine
 let g:indentLine_color_term = 111
 let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '' "use ¦, ┆ or │
 
-set autoindent " 改行時に前の行のインデントを継続する
-set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
-set number " 行番号を表示
-" set cursorline " カーソルラインをハイライト
-"
 Bundle 'kchmck/vim-coffee-script'
+
+nnoremap Y y$

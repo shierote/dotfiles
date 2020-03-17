@@ -1,4 +1,3 @@
-alias fc="find_cd"
 alias fh='eval $(history | cut -c 8-|peco)'
 alias gh='eval $(hub browse)'
 alias g=git
@@ -8,7 +7,6 @@ alias be='bundle exec'
 alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias lg='lazygit'
 alias rs="open http://localhost:3000;bundle exec rails server"
-alias r=rails
 alias jn='jupyter notebook'
 alias a='atom'
 alias c='code'
@@ -17,8 +15,11 @@ alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
 alias gd="git diff"
+alias nd="npm run dev"
+alias s="stree"
+alias minifysass="compileFromSassAndMinifiy"
 
-function find_cd() {
+function fd {
     cd "$(find . -type d | peco)"
 }
 function code {
@@ -56,12 +57,19 @@ function gv {
 function gph {
   BRANCH=`git symbolic-ref --short HEAD`
   echo "Executing git push origin ${BRANCH} ..."
-  git push origin $BRANCH
-  # read WILL_OPEN\?'Do you wanna open github page? y|N: '
-  # if [ WILL_OPEN == "y" ]; then
+  if [ BARNCH = "master" ]; then
+    read WILL_PUSH\?'This is master branch. Do you really wanna push? y|N: '
+    if [ WILL_PUSH = "y" ]; then
+      git push origin $BRANCH
+    else
+      echo "Resetting HEAD commit ..."
+      git reset --soft HEAD^
+    fi
+  else
+    git push origin $BRANCH
+  fi
   echo "Opening github page ..."
   eval $(hub browse)
-  # fi
 }
 
 function gpl {
@@ -71,26 +79,49 @@ function gpl {
 }
 
 function gu {
-  # show status
   git status -s
   echo 
 
-  # add
   read ADD_FILE\?'git add '
   git add $ADD_FILE
 
-  # show status
   git status -s
   echo
 
-  # commit
   read MESSAGE\?'git commit -m '
   git commit -m $MESSAGE
   
-  # push
   read WILL_PUSH\?'wanna push? y|N: '
   if [ WILL_PUSH == "y" ]; then 
     gph 
   fi
 }
 
+function g+ {
+  InputFile=$1
+  OutputFile=.${InputFile:0:-3}
+  g++ $InputFile -o $OutputFile -w -std=c++11
+  if [ $? -gt 0 ]; then
+    echo "CompileError is occuerred"
+  else
+    echo "Compile is finished"
+    echo "Executing output file..."
+    echo ">>>"
+    ./$OutputFile
+  fi
+}
+
+function p {
+  echo "Executing 'cat $1 | pbcopy'"
+  cat $1 | pbcopy
+}
+
+function compileFromSassAndMinifiy {
+  InputFile=$1
+  OutputCSSFile=${InputFile:0:-5}.css
+  OutputMinifiedCSSFile=${OutputCSSFile:0:-4}.min.css
+  sass $InputFile:$OutputCSSFile
+  echo "Compiled to $OutputCSSFile"
+  cleancss $OutputCSSFile -o $OutputMinifiedCSSFile
+  echo "Minified to $OutputMinifiedCSSFile"
+}

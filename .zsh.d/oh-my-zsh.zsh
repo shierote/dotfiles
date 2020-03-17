@@ -60,7 +60,8 @@ if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     :
   else
     prompt_segment magenta black
-    echo -n "${ref/refs\/heads\//⭠ }$dirty"
+    # echo -n "${ref/refs\/heads\//⭠ }$dirty"
+    echo -n "${ref/refs\/heads\// }$dirty"
   fi
 fi
 }
@@ -112,28 +113,8 @@ build_prompt() {
   prompt_end
 }
 
-r_build_prompt() {
-#  prompt_context_2
-}
-
-# build_prompt() {
-#  RETVAL=$?
-#  prompt_status
-#  prompt_context
-#  prompt_dir
-#  prompt_git
-#  prompt_end
-# }
-
 PROMPT='%{%f%b%k%}$(build_prompt) '
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-
-#  PROMPT='
-#  [%B%F{red}%n@%m%f%b:%F{yellow}%~%f]%F{cyan}$(__git_ps1 " (%s)")%f
-#  %# '
-
-# command
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
