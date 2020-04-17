@@ -29,6 +29,18 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export LANG=ja_JP.UTF-8
 
+export WORKON_HOME="$HOME/.virtualenvs"
+
+# source /usr/local/bin/virtualenvwrapper.sh
+
+export PYTHONPATH="/usr/local/bin/python3"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export LANG=ja_JP.UTF-8
+
 export HISTFILE=$HOME/.zsh-history
 export HISTSIZE=100000
 export SAVEHIST=1000000
