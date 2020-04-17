@@ -11,12 +11,12 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
 fi
 
 # added by travis gem
-[ -f /Users/taishieguchi/.travis/travis.sh ] && source /Users/taishieguchi/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/taishieguchi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taishieguchi/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/taishieguchi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taishieguchi/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
