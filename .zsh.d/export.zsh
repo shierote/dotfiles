@@ -14,8 +14,20 @@ export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/anaconda3/bin:$PATH
 export PATH=$HOME/usr/bin:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
+
+export WORKON_HOME="$HOME/.virtualenvs"
+
+# source /usr/local/bin/virtualenvwrapper.sh
+
+export PYTHONPATH="/usr/local/bin/python3"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export LANG=ja_JP.UTF-8
 
 export WORKON_HOME="$HOME/.virtualenvs"
 
