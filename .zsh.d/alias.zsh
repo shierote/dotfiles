@@ -81,24 +81,6 @@ function gpl {
   git pull origin $BRANCH
 }
 
-function gu {
-  git status -s
-
-  read ADD_FILE\?'git add '
-  git add $ADD_FILE
-
-  git status -s
-  echo
-
-  read MESSAGE\?'git commit -m '
-  git commit -m $MESSAGE
-
-  read WILL_PUSH\?'wanna push? y|N: '
-  if [ "{$WILL_PUSH}" = "y" ]; then
-    gph
-  fi
-}
-
 function g+ {
   InputFile=$1
   OutputFile=.${InputFile:0:-3}
