@@ -11,12 +11,14 @@ alias r=rails
 alias jn='jupyter notebook'
 alias a='atom'
 alias c='code'
+alias s='stree'
 alias cl='clearConsoleLog'
 alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
 alias gd="git diff"
 alias nd="npm run dev"
+alias gu="gitup"
 
 function fd {
     cd "$(find . -type d | peco)"
@@ -79,24 +81,6 @@ function gpl {
   BRANCH=`git symbolic-ref --short HEAD`
   echo "Executing git pull origin ${BRANCH} ..."
   git pull origin $BRANCH
-}
-
-function gu {
-  git status -s
-
-  read ADD_FILE\?'git add '
-  git add $ADD_FILE
-
-  git status -s
-  echo
-
-  read MESSAGE\?'git commit -m '
-  git commit -m $MESSAGE
-
-  read WILL_PUSH\?'wanna push? y|N: '
-  if [ "{$WILL_PUSH}" = "y" ]; then
-    gph
-  fi
 }
 
 function g+ {
