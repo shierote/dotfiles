@@ -1,4 +1,4 @@
-alias fh='eval $(history | cut -c 8-|peco)'
+alias fh=findHistory
 alias gh='eval $(hub browse)'
 alias g=git
 alias v=vim
@@ -19,6 +19,15 @@ alias gs="git status"
 alias gd="git diff"
 alias nd="npm run dev"
 alias gu="gitup"
+alias y="yarn"
+alias n="npm"
+alias sz="source $HOME/.zshrc"
+
+function findHistory {
+  local result="$(history |cut -c 8-|peco)"
+  echo "$ $result"
+  eval $result
+}
 
 function fd {
     cd "$(find . -type d | peco)"
@@ -68,13 +77,6 @@ function gph {
   else
     git push origin $BRANCH
   fi
-  read WILL_OPEN\?'Wanna open the GitHub page? y|[n]: '
-  if [ "$WILL_OPEN" = "y" ]; then
-    echo "Opening github page ..."
-    eval $(hub browse)
-  else
-    echo "Cancel open"
-  fi
 }
 
 function gpl {
@@ -90,8 +92,6 @@ function g+ {
   if [ $? -gt 0 ]; then
     echo "CompileError is occuerred"
   else
-    echo "Compile is finished"
-    echo "Executing output file..."
     echo ">>>"
     ./$OutputFile
   fi

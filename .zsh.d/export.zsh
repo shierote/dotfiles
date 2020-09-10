@@ -1,5 +1,4 @@
 export ZSH=$HOME/.oh-my-zsh
-export GOPATH="/usr/local/go/bin"
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
@@ -46,4 +45,7 @@ export HISTSIZE=100000
 export SAVEHIST=1000000
 
 source $HOME/anaconda3/etc/profile.d/conda.sh
+export GOPATH="$HOME/dev/go"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$GOPATH/bin:$PATH
 
