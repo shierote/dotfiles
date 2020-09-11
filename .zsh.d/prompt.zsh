@@ -7,6 +7,9 @@ source $ZSH/oh-my-zsh.sh
 
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR='⮀'
+DIR_COLOR='blue'
+BRANCH_COLOR='yellow'
+STATUS_COLOR='cyan'
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -59,7 +62,7 @@ if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
   if [[ -n $dirty ]]; then
     :
   else
-    prompt_segment magenta black
+    prompt_segment $BRANCH_COLOR black
     # echo -n "${ref/refs\/heads\//⭠ }$dirty"
     echo -n "${ref/refs\/heads\// }$dirty"
   fi
@@ -68,7 +71,7 @@ fi
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment cyan black '%~'
+  prompt_segment $DIR_COLOR black '%~'
 }
 
 # Status:
@@ -80,7 +83,7 @@ prompt_status() {
   symbols=()
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{$ARROW_COLOR}%}⚙"
 
   [[ -n "$symbols" ]] && prompt_segment green black "$symbols"
 }

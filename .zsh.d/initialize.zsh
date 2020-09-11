@@ -1,2 +1,2 @@
-eval "$(ssh-agent -s)"
-
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"

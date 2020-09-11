@@ -1,6 +1,3 @@
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-
 # LANGPATH
 export PYTHONPATH="/usr/local/bin/python3"
 export GOPATH="$HOME/dev/go"
