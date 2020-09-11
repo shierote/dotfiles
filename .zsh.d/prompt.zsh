@@ -117,4 +117,3 @@ PROMPT='%{%f%b%k%}$(build_prompt) '
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
