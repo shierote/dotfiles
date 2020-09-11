@@ -1,0 +1,22 @@
+# LANGPATH
+export PYTHONPATH="/usr/local/bin/python3"
+export GOPATH="$HOME/dev/go"
+export PYENV_ROOT="$HOME/.pyenv"
+
+# PATH
+export PATH="$HOME/cling_2019-06-08_mac1014/bin:$PATH"
+export PATH="$HOME/.embulk/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/usr/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.rbenv/shims:/usr/local/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="/Users/taishieguchi/anaconda3/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
