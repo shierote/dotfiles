@@ -1,0 +1,18 @@
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/Users/taishieguchi/anaconda/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/taishieguchi/.sdkman"
+[[ -s "/Users/taishieguchi/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/taishieguchi/.sdkman/bin/sdkman-init.sh"

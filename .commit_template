@@ -1,0 +1,25 @@
+
+# ==================== Emojis ====================
+#
+# | Content                      |Prefix               |emoji |
+# | :---------------------------:|:-------------------:|:----:|
+# | First commit                 |:tada:               | 🎉   |
+# | Introducing new features     |:sparkles:           | ✨   |
+# | Fixing a bug                 |:bug:                | 🐛   |
+# | Refactoring code             |:recycle:            | ♻️    |
+# | Updating UI                  |:art:                | 🎨   |
+# | Improve development env      |:sunglasses:         | 😎   |
+# | Writing docs                 |:pencil:             | 📝   |
+# | Improving performance        |:zap:                | ⚡    |
+# | Code for production env      |:running:            | 🏃   |
+# | Changing configuration files |:wrench:             | 🔧   |
+# | Updating code review changes.|:ok_hand:            | 👌   |
+# | Adding or updating tests     |:white_check_mark:   | ✅   |
+# | Fixing security issue        |:lock:               | 🔒   |
+# | Updating CI build system     |:construction_worker:| 👷   |
+# | Writing bad code             |:hankey:             | 💩   |
+# | Improving SEO                |:mag:                | 🔍   |
+# | Experimenting new things     |:alembic:            | ⚗️    |
+# | Critical hotfix              |:ambulance:          | 🚑   |
+# | Removing code or files       |:fire:               | 🔥   |
+# | Work In Progress             |:construction:       | 🚧   |
