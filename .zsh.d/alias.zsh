@@ -67,7 +67,7 @@ function gv {
 function gph {
   BRANCH=`git symbolic-ref --short HEAD`
   echo "Executing git push origin ${BRANCH} ..."
-  if [ $BRANCH = "main" || $BRANCH = "master" ]; then
+  if [ $BRANCH = "main" ] || [ $BRANCH = "master" ]; then
     read WILL_PUSH\?'This is main/master branch. Do you really wanna push? [y]|n: '
     if [ "$WILL_PUSH" = "n" ]; then
       echo "Cancel push"
