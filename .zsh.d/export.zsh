@@ -16,3 +16,7 @@ export HISTFILE=$HOME/.zsh-history
 export HISTSIZE=100000
 export SAVEHIST=1000000
 source $HOME/anaconda3/etc/profile.d/conda.sh
+export LDFLAGS="-L/usr/local/opt/readline/lib"
+export CPPFLAGS="-I/usr/local/opt/readline/include"
+
+export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
