@@ -1,19 +1,12 @@
 ZSH_THEME="agnoster"
-plugins=(
-  git rails ruby zsh-autosuggestions
-)
-
 source $ZSH/oh-my-zsh.sh
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR='⮀'
+SEGMENT_SEPARATOR='▶'
 DIR_COLOR='blue'
 BRANCH_COLOR='yellow'
 STATUS_COLOR='cyan'
 
-# Begin a segment
-# Takes two arguments, background and foreground. Both can be omitted,
-# rendering default background/foreground.
 prompt_segment() {
   local bg fg
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
@@ -27,7 +20,6 @@ prompt_segment() {
   [[ -n $3 ]] && echo -n $3
 }
 
-# End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
     echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
@@ -39,20 +31,14 @@ prompt_end() {
   CURRENT_BG=''
 }
 
-### Prompt components
-# Each component will draw itself, and hide itself if no information needs to be shown
-
-# Context: user@hostname (who am I and where am I)
 prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    # prompt_segment white black "✔ taishi.eguchi"
     :
   fi
 }
 
-# Git: branch/detached head, dirty status
 prompt_git() {
 local ref dirty
 if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
@@ -63,21 +49,15 @@ if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     :
   else
     prompt_segment $BRANCH_COLOR black
-    # echo -n "${ref/refs\/heads\//⭠ }$dirty"
     echo -n "${ref/refs\/heads\// }$dirty"
   fi
 fi
 }
 
-# Dir: current working directory
 prompt_dir() {
   prompt_segment $DIR_COLOR black '%~'
 }
 
-# Status:
-# - was there an error
-# - am I root
-# - are there background jobs?
 prompt_status() {
   local symbols
   symbols=()
@@ -97,7 +77,6 @@ if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
 fi
 }
 
-# timeline setting
 precmd() {
   # print
   # print
@@ -107,7 +86,6 @@ precmd() {
   print -P $left
 }
 
-## Main prompt
 build_prompt() {
   RETVAL=$?
   prompt_status
@@ -118,5 +96,3 @@ build_prompt() {
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

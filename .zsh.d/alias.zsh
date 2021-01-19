@@ -1,27 +1,23 @@
-alias fh=findHistory
-alias gh='eval $(hub browse)'
-alias g=git
-alias v=vim
 alias b=bundle
 alias be='bundle exec'
-alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
-alias lg='lazygit'
-alias rs="open http://localhost:3000;bundle exec rails server"
-alias r=rails
-alias jn='jupyter notebook'
-alias a='atom'
 alias c='code'
-alias s='stree'
 alias cl='clearConsoleLog'
-alias ga="git add"
-alias gc="git commit"
-alias gs="git status"
-alias gd="git diff"
-alias nd="npm run dev"
+alias cp="cp -i"
+alias fh=findHistory
+alias g=git
+alias gh='eval $(hub browse)'
 alias gu="gitup"
-alias y="yarn"
+alias jn='jupyter notebook'
+alias le="less"
+alias lg='lazygit'
 alias n="npm"
+alias nd="npm run dev"
+alias r=rails
+alias rm="rm -i"
+alias s='stree'
 alias sz="source $HOME/.zshrc"
+alias v=vim
+alias y="yarn"
 
 function findHistory {
   local result="$(history |cut -c 8-|peco)"
@@ -32,16 +28,7 @@ function findHistory {
 function fd {
     cd "$(find . -type d | peco)"
 }
-function code {
-    if [[ $# = 0 ]]
-    then
-        open -a "Visual Studio Code"
-    else
-        local argPath="$1"
-        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
-        open -a "Visual Studio Code" "$argPath"
-    fi
-}
+
 function ggl {
     if [ $(echo $1 | egrep "^-[cfs]$") ]; then
         local opt="$1"
@@ -59,6 +46,7 @@ function ggl {
         *)      open "${url}";;
     esac
 }
+
 function gv {
   STR="$1"
   vi $(git grep -n ${STR} | peco | awk -F: '{print $1}')

@@ -1,7 +1,10 @@
+## install plugin
+Once you change a computer
+```
+$ ./install.sh
+```
 ## setup
-
-- install ZSH, OhMyZsh
-
+Every time you change
 ```
 $ ./setup.sh
 ```
