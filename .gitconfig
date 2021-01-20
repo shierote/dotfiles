@@ -17,4 +17,4 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /home/shierote/dotfiles/.commit_template
+	template = /Users/taishieguchi/dev/dotfiles/.commit_template

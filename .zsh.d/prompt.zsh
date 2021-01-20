@@ -2,7 +2,10 @@ ZSH_THEME="agnoster"
 source $ZSH/oh-my-zsh.sh
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR='▶'
+SEGMENT_SEPARATOR='⮀'
+if [ $(uname) = "Linux" ];then
+  SEGMENT_SEPARATOR='▶'
+fi
 DIR_COLOR='blue'
 BRANCH_COLOR='yellow'
 STATUS_COLOR='cyan'
