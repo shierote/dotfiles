@@ -1,5 +1,5 @@
 plugins=(
-   git rails ruby zsh-autosuggestions
+   git ruby zsh-autosuggestions
 )
 
 eval "$(pyenv init -)"

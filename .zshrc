@@ -1,5 +1,3 @@
-echo ".zshrc"
-
 # zshrc is splitted into smaller files for each function under ~/.zsh.d
 # http://fnwiya.hatenablog.com/entry/2015/11/03/191902
 ZSHHOME="${HOME}/.zsh.d"
