@@ -14,7 +14,6 @@ alias n="npm"
 alias nd="npm run dev"
 alias r=rails
 alias rm="rm -i"
-alias s='stree'
 alias sz="source $HOME/.zshrc"
 alias v=vim
 alias y="yarn"
