@@ -65,12 +65,11 @@ function gpl {
 
 function g+ {
   InputFile=$1
-  OutputFile=.${InputFile:0:-3}
+  OutputFile=.${InputFile}.out
   g++ $InputFile -o $OutputFile -w -std=c++14
   if [ $? -gt 0 ]; then
     echo "CompileError is occuerred"
   else
-    echo ">>>"
     ./$OutputFile
   fi
 }
