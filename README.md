@@ -9,3 +9,10 @@ Every time you change
 ```
 $ ./setup.sh
 ```
+
+## M1 macbook case
+Use miniforge https://github.com/conda-forge/miniforge
+```
+$ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+$ bash Miniforge3-MacOSX-arm64.sh
+```
