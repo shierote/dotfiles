@@ -7,6 +7,7 @@ alias fh=findHistory
 alias g=git
 alias gh='eval $(hub browse)'
 alias gu="gitup"
+alias h="history"
 alias jn='jupyter notebook'
 alias le="less"
 alias lg='lazygit'
