@@ -5,7 +5,6 @@ alias cl='clearConsoleLog'
 alias cp="cp -i"
 alias fh=findHistory
 alias g=git
-alias gh='eval $(hub browse)'
 alias gu="gitup"
 alias jn='jupyter notebook'
 alias le="less"
@@ -17,6 +16,7 @@ alias rm="rm -i"
 alias sz="source $HOME/.zshrc"
 alias v=vim
 alias y="yarn"
+alias h="history"
 
 function findHistory {
   local result="$(history |cut -c 8-|peco)"
@@ -66,7 +66,7 @@ function gpl {
 function g+ {
   InputFile=$1
   OutputFile=.${InputFile}.out
-  g++ $InputFile -o $OutputFile -w -std=c++14
+  g++ $InputFile -o $OutputFile
   if [ $? -gt 0 ]; then
     echo "CompileError is occuerred"
   else
