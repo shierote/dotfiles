@@ -17,6 +17,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # OTHERS
 export CPPFLAGS="-I/usr/local/opt/readline/include"
