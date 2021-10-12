@@ -4,6 +4,13 @@ Once you change a computer
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 $ ./install.sh
 ```
+
+## install shell theme
+https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
+
+1. [Download font file](https://github.com/romkatv/powerlevel10k#manual-font-installation)
+2. Run install https://github.com/romkatv/powerlevel10k#oh-my-zsh
+
 ## setup
 Every time you change
 ```
