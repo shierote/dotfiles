@@ -13,3 +13,9 @@ if [ $(uname) = "Darwin" ];then
 else
   ZSH_THEME="powerlevel10k/powerlevel10k"
 fi
+
+plugins=(
+  git ruby zsh-autosuggestions
+)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

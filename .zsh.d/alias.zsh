@@ -1,3 +1,6 @@
+setopt AUTO_CD
+cdpath=(.. ~ ~/src)
+
 alias b=bundle
 alias be='bundle exec'
 alias c='code'
@@ -20,6 +23,15 @@ alias v=vim
 alias y="yarn"
 alias h="history"
 alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
+if [ $(uname) = "Darwin" ];then
+  alias a="atom"
+  alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
+  alias o="open"
+elif [ $(uname) = "Linux" ];then
+  alias open="xdg-open"
+  alias o="xdg-open"
+fi
+
 
 function findHistory {
   local result="$(history |cut -c 8-|peco)"

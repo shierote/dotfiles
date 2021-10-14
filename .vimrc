@@ -20,7 +20,6 @@ set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次�
 syntax enable
 
 " inoremap/nnoremap
-"jjをESCに割当
-inoremap <silent> jj <ESC>
+inoremap <silent> jj <ESC> "jjをESCに割当
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
