@@ -18,6 +18,7 @@ alias sz="source $HOME/.zshrc"
 alias v=vim
 alias y="yarn"
 alias h="history"
+alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
 
 function findHistory {
   local result="$(history |cut -c 8-|peco)"

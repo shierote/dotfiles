@@ -18,6 +18,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
+if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
+  export PATH="$PATH:/opt/homebrew/bin"
+fi
 
 # OTHERS
 export CPPFLAGS="-I/usr/local/opt/readline/include"
@@ -33,4 +36,3 @@ export SHELL=/bin/zsh
 export SDKMAN_DIR="$HOME/.sdkman"
 export WORKON_HOME="$HOME/.virtualenvs"
 export ZSH=$HOME/.oh-my-zsh
-

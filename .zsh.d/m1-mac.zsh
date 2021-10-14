@@ -13,7 +13,4 @@ if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
   fi
   unset __conda_setup
   # <<< conda initialize <<<
-
-  export PATH="$PATH:/opt/homebrew/bin"
 fi
-
