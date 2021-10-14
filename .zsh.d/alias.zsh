@@ -22,8 +22,9 @@ alias sz="source $HOME/.zshrc"
 alias v=vim
 alias y="yarn"
 alias h="history"
-alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
-if [ $(uname) = "Darwin" ];then
+if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
+  alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
+elif [ $(uname) = "Darwin" ];then
   alias a="atom"
   alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
   alias o="open"

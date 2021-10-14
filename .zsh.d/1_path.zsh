@@ -13,14 +13,13 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
-if [ $(uname) = "Darwin" ];then
+if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
+  export PATH="$PATH:/opt/homebrew/bin"
+elif [ $(uname) = "Darwin" ];then
   # macOS
   export PATH="$HOME/cling_2019-06-08_mac1014/bin:$PATH"
   export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
   export PATH="$PATH:$HOME/dev/send_healthcheck_form/"
-  if [ $(uname -m) = "arm64" ];then
-    export PATH="$PATH:/opt/homebrew/bin"
-  fi
 elif [ $(uname) = "Linux" ];then
   # Ubuntu
 fi
