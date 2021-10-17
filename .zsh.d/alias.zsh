@@ -70,7 +70,7 @@ function gv {
 function gph {
   BRANCH=`git symbolic-ref --short HEAD`
   echo "Executing git push origin ${BRANCH} ..."
-  git push origin $BRANCH
+  git push -f origin $BRANCH
 }
 
 function gpl {
