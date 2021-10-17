@@ -25,6 +25,7 @@ alias h="history"
 if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
   alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
 elif [ $(uname) = "Darwin" ];then
+  alias g++=$(brew --prefix)/Cellar/gcc@9/9.4.0/bin/g++-9
   alias a="atom"
   alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
   alias o="open"
@@ -82,7 +83,7 @@ function gpl {
 function g+ {
   InputFile=$1
   OutputFile=.${InputFile}.out
-  g++ $InputFile -o $OutputFile
+  g++ -std=gnu++17 $InputFile -o $OutputFile
   if [ $? -gt 0 ]; then
     echo "CompileError is occuerred"
   else
