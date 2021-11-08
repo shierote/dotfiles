@@ -24,9 +24,9 @@ alias y="yarn"
 alias h="history"
 if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
   alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
+  alias o="open"
 elif [ $(uname) = "Darwin" ];then
   alias g++=$(brew --prefix)/Cellar/gcc@9/9.4.0/bin/g++-9
-  alias a="atom"
   alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
   alias o="open"
 elif [ $(uname) = "Linux" ];then
