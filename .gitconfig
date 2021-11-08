@@ -20,3 +20,5 @@
 	template = /Users/shierote/dotfiles/.commit_template
 [init]
 	defaultBranch = main
+[pull]
+	rebase = false
