@@ -92,8 +92,16 @@ function g+ {
 }
 
 function p {
-  echo "Executing 'cat $1 | pbcopy'"
-  cat $1 | pbcopy
+  if [ $(uname) = "Darwin" ];then
+    echo "Executing 'cat $1 | pbcopy'"
+    cat $1 | pbcopy
+  elif [ $(uname) = "Linux" ];then
+    echo "Executing 'cat $1 | xclip -selection c'"
+    cat $1 | xclip -selection c
+  else
+    echo "Not implemented platform!" 1>&2
+    exit 64
+  fi
 }
 
 function clearConsoleLog {

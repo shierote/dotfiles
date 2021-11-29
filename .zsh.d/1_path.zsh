@@ -22,4 +22,5 @@ elif [ $(uname) = "Darwin" ];then
   export PATH="$PATH:$HOME/dev/send_healthcheck_form/"
 elif [ $(uname) = "Linux" ];then
   # Ubuntu
+  export PATH="$PATH:$HOME/depot_tools"
 fi
