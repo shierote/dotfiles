@@ -22,6 +22,7 @@ alias sz="source $HOME/.zshrc"
 alias v=vim
 alias y="yarn"
 alias h="history"
+alias rc="remote-code"
 if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
   alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
   alias o="open"
@@ -107,3 +108,22 @@ function p {
 function clearConsoleLog {
   /usr/bin/clear
 }
+
+if [ $(uname) = "Darwin" ];then
+  function remote-code {
+    RCODE_FIRST_TOKEN=my-vscode-opener
+    RCODE_LAST_TOKEN=renepo-edocsv-ym
+    echo $RCODE_FIRST_TOKEN vscode-remote://ssh-remote+ubuntu$(pwd) $RCODE_LAST_TOKEN
+  }
+elif [ $(uname) = "Linux" ];then
+  function remote-code {
+    START=my-vscode-opener
+    END=renepo-edocsv-ym
+
+    OPEN_PATH=$(echo $@ | sed "s/$START \(.*\) $END/\1/")
+
+    OUTPUT=$(/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --folder-uri $OPEN_PATH)
+
+    echo "echo \"$OUTPUT\""
+  }
+fi
