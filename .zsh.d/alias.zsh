@@ -102,11 +102,6 @@ function clearConsoleLog {
 }
 
 if [ $(uname) = "Darwin" ];then
-<< COMMENTOUT
-my-vscode-opener .* renepo-edocsv-ym
-Run Command
-/path/to/remote-code \0
-COMMENTOUT
   function remote-code {
     RCODE_FIRST_TOKEN=my-vscode-opener
     RCODE_LAST_TOKEN=renepo-edocsv-ym
