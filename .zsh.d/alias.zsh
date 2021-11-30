@@ -33,6 +33,7 @@ elif [ $(uname) = "Linux" ];then
   alias open="xdg-open"
   alias o="xdg-open"
   alias rc="remote-code"
+  alias rcode="remote-code"
 fi
 
 
@@ -111,8 +112,9 @@ function clearConsoleLog {
 
 if [ $(uname) = "Linux" ];then
   function remote-code {
+    path="$(cd -- "$(dirname -- "$1")" && pwd)" || exit $?
     RCODE_FIRST_TOKEN=my-vscode-opener
     RCODE_LAST_TOKEN=renepo-edocsv-ym
-    echo $RCODE_FIRST_TOKEN vscode-remote://ssh-remote+ubuntu$(pwd) $RCODE_LAST_TOKEN
+    echo $RCODE_FIRST_TOKEN vscode-remote://ssh-remote+ubuntu$path $RCODE_LAST_TOKEN
   }
 fi
