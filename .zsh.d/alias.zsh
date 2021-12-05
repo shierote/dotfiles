@@ -18,10 +18,10 @@ alias n="npm"
 alias nd="npm run dev"
 alias r=rails
 alias rm="rm -i"
+alias ssu="ssh ubuntu"
 alias sz="source $HOME/.zshrc"
 alias v=vim
 alias y="yarn"
-alias h="history"
 if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
   alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
   alias o="open"
