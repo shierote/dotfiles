@@ -112,9 +112,9 @@ function clearConsoleLog {
 
 if [ $(uname) = "Linux" ];then
   function remote-code {
-    path="$(cd -- "$(dirname -- "$1")" && pwd)" || exit $?
+    RCODE_PATH="$(cd -- "$(dirname -- "$1")" && pwd)" || exit $?
     RCODE_FIRST_TOKEN=my-vscode-opener
     RCODE_LAST_TOKEN=renepo-edocsv-ym
-    echo $RCODE_FIRST_TOKEN vscode-remote://ssh-remote+ubuntu$path $RCODE_LAST_TOKEN
+    echo $RCODE_FIRST_TOKEN vscode-remote://ssh-remote+ubuntu$RCODE_PATH $RCODE_LAST_TOKEN
   }
 fi
