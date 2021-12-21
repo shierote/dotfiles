@@ -8,7 +8,8 @@ alias cp="cp -i"
 alias fh=findHistory
 alias g=git
 alias gu="gitup"
-alias h="history"
+alias history="history -E 1"
+alias h=history
 alias jn='jupyter notebook'
 alias le="less"
 alias lg='lazygit'
@@ -33,12 +34,11 @@ elif [ $(uname) = "Linux" ];then
   alias rc="remote-code"
 fi
 
-if [ -z $SSH_TTY ]; then # whether ssh or not
+if [ -z $SSH_TTY ];then # whether ssh or not
   alias c="code"
-else
+elif [ $(uname) = "Linux" ];then
   alias c="remote-code"
-if
-
+fi
 
 function findHistory {
   local result="$(history |cut -c 8-|peco)"
