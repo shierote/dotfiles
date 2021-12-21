@@ -3,7 +3,6 @@ cdpath=(.. ~ ~/src)
 
 alias b=bundle
 alias be='bundle exec'
-alias c='code'
 alias cl='clearConsoleLog'
 alias cp="cp -i"
 alias fh=findHistory
@@ -32,8 +31,13 @@ elif [ $(uname) = "Linux" ];then
   alias open="xdg-open"
   alias o="xdg-open"
   alias rc="remote-code"
-  alias rcode="remote-code"
 fi
+
+if [ -z $SSH_TTY ]; then # whether ssh or not
+  alias c="code"
+else
+  alias c="remote-code"
+if
 
 
 function findHistory {
