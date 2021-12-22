@@ -1,12 +1,11 @@
 #!/bin/sh
-ln -sf $PWD/.gitignore_global $HOME/.gitignore_global
 ln -sf $PWD/.vimrc $HOME/.vimrc
 ln -sf $PWD/.zshrc $HOME/.zshrc
-ln -sf $PWD/.gitconfig $HOME/.gitconfig
 ln -nsf $PWD/.zsh.d $HOME/.zsh.d
 
-git config --global core.excludesFile $HOME/.gitignore_global
-git config --global commit.template $PWD/.commit_template
-git config --global init.defaultBranch main
+# Git
+ln -sf $PWD/.gitignore_global $HOME/.gitignore_global
+ln -sf $PWD/.commit_template $HOME/.commit_template
+ln -sf $PWD/.gitconfig $HOME/.gitconfig
 
 exec $SHELL -l

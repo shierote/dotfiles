@@ -1,3 +1,5 @@
+[include]
+  path = .gitconfig.os
 [user]
 	email = taishi2060@gmail.com
 	name = shierote
@@ -8,17 +10,9 @@
   c  = commit
   d  = diff
 [core]
-	excludesFile = /Users/shierote/.gitignore_global
 	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/shierote/dotfiles/.commit_template
+	excludesFile = ~/.gitignore_global
 [init]
 	defaultBranch = main
-[pull]
-	rebase = false
+[commit]
+	template = ~/.commit_template
