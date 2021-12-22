@@ -8,7 +8,7 @@ $ ./install.sh
 ## install shell theme
 https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
 
-1. [Download font file](https://github.com/romkatv/powerlevel10k#manual-font-installation)
+1. [Download font file](https://github.com/romkatv/powerlevel10k#automatic-font-installation)
 2. Run install https://github.com/romkatv/powerlevel10k#oh-my-zsh
 
 ## setup
