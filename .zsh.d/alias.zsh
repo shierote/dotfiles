@@ -32,6 +32,7 @@ elif [ $(uname) = "Linux" ];then
   alias open="xdg-open"
   alias o="xdg-open"
   alias rc="remote-code"
+  alias youtube-dl="yt-dlp"
 fi
 
 if [ -z $SSH_TTY ];then # whether ssh or not
