@@ -22,5 +22,5 @@ if [ $(uname) = "Darwin" ];then
 elif [ $(uname) = "Linux" ];then
   export LD_LIBRARY_PATH="/usr/lib/cuda/lib63:$LD_LIBRARY_PATH"
   export LD_LIBRARY_PATH="/usr/lib/cuda/include:$LD_LIBRARY_PATH"
-  export XDG_RUNTIME_DIR="/tmp/.xdg"
+  export XDG_RUNTIME_DIR="$HOME/.xdg"
 fi
