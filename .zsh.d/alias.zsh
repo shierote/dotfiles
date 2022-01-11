@@ -3,7 +3,7 @@ cdpath=(.. ~ ~/src)
 
 alias b=bundle
 alias be='bundle exec'
-alias cl='clearConsoleLog'
+alias cl='clear'
 alias cp="cp -i"
 alias fh=findHistory
 alias g=git
@@ -16,18 +16,21 @@ alias lg='lazygit'
 alias n="npm"
 alias nd="npm run dev"
 alias r=rails
-alias rm="rm -i"
 alias ssu="ssh ubuntu"
 alias sz="source $HOME/.zshrc"
 alias v=vim
 alias y="yarn"
+
+if [ $(uname) = "Darwin" ];then
+  alias rm="trash"
+  alias o="open"
+fi
+
 if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
   alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
-  alias o="open"
 elif [ $(uname) = "Darwin" ];then
   alias g++=$(brew --prefix)/Cellar/gcc@9/9.4.0/bin/g++-9
   alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
-  alias o="open"
 elif [ $(uname) = "Linux" ];then
   alias open="xdg-open"
   alias o="xdg-open"
@@ -90,10 +93,11 @@ function g+ {
   InputFile=$1
   OutputFile=.${InputFile}.out
   g++ -std=gnu++17 $InputFile -o $OutputFile
-  if [ $? -gt 0 ]; then
-    echo "CompileError is occuerred"
-  else
+  if [ $? -eq 0 ]; then
     ./$OutputFile
+  else
+    echo "CompileError is occuerred"
+    exit $?
   fi
 }
 
@@ -108,10 +112,6 @@ function p {
     echo "Not implemented platform!" 1>&2
     exit 64
   fi
-}
-
-function clearConsoleLog {
-  /usr/bin/clear
 }
 
 if [ $(uname) = "Linux" ];then
