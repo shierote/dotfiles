@@ -93,12 +93,8 @@ function g+ {
   InputFile=$1
   OutputFile=.${InputFile}.out
   g++ -std=gnu++17 $InputFile -o $OutputFile
-  if [ $? -eq 0 ]; then
-    ./$OutputFile
-  else
-    echo "CompileError is occuerred"
-    exit $?
-  fi
+  # FIXME: raise error if g++ failed
+  ./$OutputFile
 }
 
 function p {
