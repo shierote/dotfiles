@@ -14,7 +14,7 @@ if [ $(uname) = "Darwin" ];then
 fi
 
 if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
-  alias g++=$(brew --prefix)/Cellar/gcc/11.2.0/bin/g++-11
+  alias g++=$(brew --prefix)/Cellar/gcc/11.2.0_3/bin/g++-11
 elif [ $(uname) = "Darwin" ];then
   alias g++=$(brew --prefix)/Cellar/gcc@9/9.4.0/bin/g++-9
   alias e="/Applications/Emacs.app/Contents/MacOS/Emacs"
@@ -79,3 +79,4 @@ if [ $(uname) = "Linux" ];then
     echo $RCODE_FIRST_TOKEN vscode-remote://ssh-remote+ubuntu$RCODE_PATH $RCODE_LAST_TOKEN
   }
 fi
+
