@@ -1,29 +1,16 @@
 setopt AUTO_CD
 cdpath=(.. ~ ~/src)
 
-alias b=bundle
-alias be='bundle exec'
 alias cl='clear'
 alias cp="cp -i"
-alias fh=findHistory
-alias g=git
-alias gu="gitup"
 alias history="history -E 1"
 alias h=history
-alias jn='jupyter notebook'
-alias le="less"
-alias lg='lazygit'
-alias n="npm"
-alias nd="npm run dev"
-alias r=rails
-alias ssu="ssh ubuntu"
 alias sz="source $HOME/.zshrc"
-alias v=vim
-alias y="yarn"
 
 if [ $(uname) = "Darwin" ];then
   alias rm="trash"
   alias o="open"
+  alias ssu="ssh ubuntu"
 fi
 
 if [ $(uname) = "Darwin" -a $(uname -m) = "arm64" ];then
@@ -36,6 +23,13 @@ elif [ $(uname) = "Linux" ];then
   alias o="xdg-open"
   alias rc="remote-code"
   alias youtube-dl="yt-dlp"
+
+  alias wt="weston-terminal 2> /dev/null 1>/dev/null &"
+  alias zmonitors2="WAYLAND_DISPLAY=wayland-1 zmonitors"
+  alias bathroom="zen-background-bathroom $HOME/zen/clients/assets/bathroom.obj $HOME/zen/clients/assets/bathroom.mtl $HOME/zen/clients/assets/bathroom_textures"
+  alias room="zen-background-room $HOME/zen/clients/assets/modern_room.obj $HOME/zen/clients/assets/modern_room.mtl $HOME/zen/clients/assets/modern_room_textures"
+  alias sky="zen-background-sky"
+  alias vrmonitor="$HOME/.steam/debian-installation/steamapps/common/SteamVR/bin/linux64/../vrmonitor.sh"
 fi
 
 if [ -z $SSH_TTY ];then # whether ssh or not
@@ -43,39 +37,6 @@ if [ -z $SSH_TTY ];then # whether ssh or not
 elif [ $(uname) = "Linux" ];then
   alias c="remote-code"
 fi
-
-function findHistory {
-  local result="$(history |cut -c 8-|peco)"
-  echo "$ $result"
-  eval $result
-}
-
-function fd {
-    cd "$(find . -type d | peco)"
-}
-
-function ggl {
-    if [ $(echo $1 | egrep "^-[cfs]$") ]; then
-        local opt="$1"
-        shift
-    fi
-    local url="https://www.google.co.jp/search?q=${*// /+}"
-    local app="/Applications"
-    local g="${app}/Google Chrome.app"
-    local f="${app}/Firefox.app"
-    local s="${app}/Safari.app"
-    case ${opt} in
-        "-g")   open "${url}" -a "$g";;
-        "-f")   open "${url}" -a "$f";;
-        "-s")   open "${url}" -a "$s";;
-        *)      open "${url}";;
-    esac
-}
-
-function gv {
-  STR="$1"
-  vi $(git grep -n ${STR} | peco | awk -F: '{print $1}')
-}
 
 function gph {
   BRANCH=`git symbolic-ref --short HEAD`

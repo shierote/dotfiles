@@ -4,11 +4,6 @@
 	email = taishi2060@gmail.com
 	name = shierote
 [alias]
-  st = status
-  co = checkout
-  a  = add
-  c  = commit
-  d  = diff
 [core]
 	editor = vim
 	excludesFile = ~/.gitignore_global

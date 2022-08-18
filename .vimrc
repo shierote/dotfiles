@@ -22,4 +22,3 @@ syntax enable
 " inoremap/nnoremap
 inoremap <silent> jj <ESC> "jjをESCに割当
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
-
