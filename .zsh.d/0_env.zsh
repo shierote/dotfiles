@@ -19,10 +19,6 @@ if [ $(uname) = "Darwin" ];then
   export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
   export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 elif [ $(uname) = "Linux" ];then
-  export CPPFLAGS="-I/usr/local/opt/readline/include"
-  export LDFLAGS="-L/usr/local/opt/readline/lib"
-  export LD_LIBRARY_PATH="/usr/lib/cuda/lib63:$LD_LIBRARY_PATH"
-  export LD_LIBRARY_PATH="/usr/lib/cuda/include:$LD_LIBRARY_PATH"
   export XDG_RUNTIME_DIR="$HOME/.xdg"
   export PKG_CONFIG_PATH="/usr/share/pkgconfig"
 fi
