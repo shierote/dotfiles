@@ -1,5 +1,3 @@
-[include]
-  path = .gitconfig.os
 [user]
 	email = taishi2060@gmail.com
 	name = shierote
